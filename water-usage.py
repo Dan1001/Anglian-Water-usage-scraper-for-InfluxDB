@@ -14,6 +14,8 @@ anglia_password = "password123"
 
 influxdb_username = "openhab"
 influxdb_password = "password123"
+influxdb_url = "127.0.0.1"
+influxdb_port = 8086
 
 # if you set debug_mode to True then chrome runs in a window, so you can see what the script is doing
 # and it sends text updates to the terminal
@@ -83,7 +85,7 @@ for x in data:
 
 # print(json_body)
 
-client = InfluxDBClient('127.0.0.1', 8086, influxdb_username, influxdb_password, 'openhab_db')
+client = InfluxDBClient(influxdb_url, influxdb_port, influxdb_username, influxdb_password, 'openhab_db')
 
 client.write_points(json_body)
 
